@@ -1,12 +1,102 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://d3js.org/d3.v7.min.js"></script> 
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-<body>
-  <div id="visualization"></div>
-  <script src="graph.js"></script>
-  <h1>Hello World</h1>
-  <p>I'm hosted with GitHub Pages.</p>
-</body>
+  <body>
+    <h1>Global CO2 Emissions And Global Temperature</h1>
+    <h3>
+      Exploring the relationship between CO2 levels and global temperatures over
+      time.
+    </h3>
+    <p>
+      The data visualizations presented here attempts to explore the
+      relationship between CO2 levels and global temperatures. The CO2 data used
+      comes from
+      <a
+        href="https://climate.nasa.gov/vital-signs/carbon-dioxide/?intent=111"
+        target="_blank"
+        >NASA</a
+      >
+      and is measured in parts per million (ppm). The temperature data is
+      sourced from
+      <a
+        href="https://climate.nasa.gov/vital-signs/global-temperature/?intent=111"
+        target="_blank"
+        >NASA</a
+      >
+      and is presented as a global average temperature anomaly in degrees
+      Celsius.
+    </p>
+    <hr
+      style="
+        margin: 1.5rem 0;
+        border: none;
+        border-top: 1px solid hsl(220, 13%, 91%);
+        width: 100%;
+      "
+    />
+    <div class="controls" style="align-self: flex-start">
+      <button type="button" id="prev-scene"><</button>
+      <button type="button" id="next-scene">></button>
+      <div style="margin-left: auto; visibility: hidden" id="playback-controls">
+        <button style="width: 100px" type="button" id="play-pause-button">
+          Play
+        </button>
+        <button style="width: 100px" type="button" id="reset-button">
+          Reset
+        </button>
+      </div>
+    </div>
+    <div id="chart-container">
+      <div style="display: flex; flex-direction: column; width: 200px">
+        <div id="scene-text" style="width: 100%"></div>
+        <div id="year-range-controls" style="visibility: hidden">
+          <div class="year-range">
+            <div>
+              <label for="year-range-min">Start Year:</label>
+              <span id="year-range-min-value">1959</span>
+            </div>
+            <input
+              type="range"
+              id="year-range-min"
+              min="1959"
+              max="2024"
+              value="1959"
+              step="1"
+            />
+          </div>
+          <div class="year-range">
+            <div>
+              <label for="year-range-max">End Year:</label>
+              <span id="year-range-max-value">2024</span>
+            </div>
+            <input
+              type="range"
+              id="year-range-max"
+              min="1966"
+              max="2024"
+              value="2024"
+              step="1"
+            />
+          </div>
+        </div>
+        <div
+          id="show-annotations-container"
+          style="visibility: hidden; display: flex; align-items: center"
+        >
+          <input type="checkbox" id="show-annotations" />
+          <label for="show-annotations">Show Annotations</label>
+        </div>
+      </div>
+      <div id="visualization"></div>
+    </div>
+    <script type="module" src="main.mjs"></script>
+  </body>
 </html>

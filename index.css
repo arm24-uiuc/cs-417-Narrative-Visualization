@@ -1,0 +1,72 @@
+h1 {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+  margin-inline: auto;
+  font-family: 'Roboto', Arial, sans-serif;
+  border: 1px solid hsl(220,13%,91%);
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: hsl(263, 88%, 57%);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  box-shadow: 0 2px 8px rgba(123,47,242,0.15);
+  cursor: pointer;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+button:hover {
+  background-color: hsl(263, 88%, 70%);
+}
+
+button:disabled {
+  background-color: hsl(263, 88%, 80%);
+  cursor: not-allowed;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+#chart-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.year-range {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.annotation-note-label {
+  font-size: 12px !important;
+}
+
+#year-range-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: 60px;
+  width: 100%;
+}
